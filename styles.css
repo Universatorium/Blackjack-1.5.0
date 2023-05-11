@@ -1,0 +1,89 @@
+body {
+    background-color: royalblue;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+#play-button {
+    background-color: rgb(119, 192, 217);
+}
+
+#play-button:hover {
+    background-color: #0077a3;
+}
+
+#reset-button {
+    background-color: #f44336;
+}
+
+#reset-button:hover {
+    background-color: #d32f2f;
+}
+
+#user-cards {
+    margin-right: 10px;
+}
+
+#game-area {
+    background-color: lightblue;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 5px;
+    width: 600px;
+    height: 240px;
+    margin: 0 auto;
+}
+
+#user-area {
+  float: left;
+  font-size: 20px;
+}
+
+#computer-area {
+  float: right;
+  font-size: 20px;
+}
+
+
+#message-area {
+  text-align: center;
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+#button-area {
+  text-align: center;
+  font-size: 20px;
+}
+.ergebnis{
+    display: block;
+    flex-direction: left;
+    margin-top: 110px;
+        color: #f7f3f3;  
+        font-size: 30px;
+        line-height: 0.9;
+        justify-content: center;
+}
+.spiele{
+    display: right;
+    margin-left: 60px;
+    padding: 20px;
+}
