@@ -2,7 +2,7 @@
     position: fixed;
 }
 body {
-    /* background-image: url('jack-der-spaten-und-herzasskarte-mit-kasinochips-stapeln-auf-gruener-pokertabelle_23-2147881172.avif'); */
+    /* background-image: url('banner.avif'); */
     background-image: url('casino-hintergrund-mit-vier-ass-spielkarten_1017-23674.avif');
     background-size: 100%;
     color: black;
@@ -122,7 +122,8 @@ font-style: bold;
 .spielverlauf {
     flex-basis: 50%; /* Setze die Breite der Spiele auf 50% */
     box-sizing: border-box; /* Berücksichtige die Innenabstände in der Breite */
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    margin-top: 10px;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;

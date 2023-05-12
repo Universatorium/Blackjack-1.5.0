@@ -9,6 +9,7 @@ let userPoints = 0;
 let computerPoints = 0;
 // message wird initialisiert, um Meldungen an den Benutzer anzuzeigen
 let message = "";
+let message2= "";
 
 // gameArea wird initialisiert und die Elemente userArea, computerArea, userCardsEl, computerCardsEl, userPointsEl, computerPointsEl, playButton, messageEl, resetButton, hitButton und standButton werden initialisiert
 const gameArea = document.getElementById("game-area");
@@ -101,7 +102,7 @@ function startGame() {
   // Mische das Deck
   shuffleDeck();
 
-  // Teile dem Spieler und dem Computer jeweils zwei Karten aus
+  // Teile dem Spieler zwei Karten und dem Computer eine Karte aus
   drawCard(userCards);
   drawCard(userCards);
   drawCard(computerCards);
@@ -118,22 +119,34 @@ function startGame() {
   // Zeige die Punkte des Spielers an und verstecke die Punkte des Computers
   userPointsEl.textContent = userPoints;
   computerPointsEl.textContent = "";
+  
+ 
 
   // Aktiviere die Buttons "Hit" und "Stand", deaktiviere den Button "Play"
   hitButton.disabled = false;
   standButton.disabled = false;
   playButton.disabled = true;
+ 
+  if(userPoints === 21){
+    hitButton.disabled = true
+    standButton.disabled = true;
+    computerPointsEl.textContent = computerPoints;
+    message = "Deine Ausbildung - beendet sie ist!"
+    message2 = "JACKPOT!!!";
+    endGame();
+  }
 
+
+}
   // Sprich die Meldungen aus
   speak(message);
-
   // Setze die Meldungen zurück
   messageEl.textContent = "";
-}
 
 // Fügt dem Nutzer eine Karte hinzu und berechnet seine Punkte
 function hit() {
   // Ziehe eine Karte und füge sie zum Spieler hinzu
+
   drawCard(userCards);
   // Berechne die Punkte des Spielers
   userPoints = calculatePoints(userCards);
@@ -178,7 +191,12 @@ function stand() {
     message = "Du Verlierst, aber gewinnst an Erfahrung";
     message2 = "Loooooser!!!";
   }
-  // Wenn beide Spieler die gleiche Anzahl von Punkten haben, ist das Spiel unentschieden
+    // Wenn beide Spieler die gleiche Anzahl von Punkten haben, ist das Spiel unentschieden
+
+  else if (userPoints === computerPoints && userPoints === 21) {
+    message = "die Antwort auf die Frage nach dem Leben, dem Universum und dem ganzen Rest";
+    message2 = "!!!42!!!";
+  }
   else {
     message = "Max! Ich bin dein Vater!";
     message2 = "Man weiß es nicht ...";
@@ -220,22 +238,9 @@ function displayResults(ergebnisse) {
   ergebnisseEl.appendChild(table);
 }
 
-// function displayResults(ergebnisse) {
-//   const ergebnisseEl = document.getElementById("ergebnisse");
-//   ergebnisseEl.innerHTML = "<h2>Letzte Spiele:</h2>";
-
-//   for (let i = 0; i < ergebnisse.length; i++) {
-//     const spiel = ergebnisse[i];
-//     const spielEl = document.createElement("div");
-//     spielEl.classList.add("spiel");
-//     spielEl.innerHTML = "Spiel " + (i + 1) + ": " + spiel.userCards.map(card => `${card.symbol}${card.value}`).join(" ") + " gegen " + spiel.computerCards.map(card => `${card.symbol}${card.value}`).join(" ") + ". Ergebnis: " + spiel.userPoints + " - " + spiel.computerPoints + ". Gewinner: " + spiel.gewinner;
-//     ergebnisseEl.appendChild(spielEl);
-//   }
-// }
-
 // Beendet das Spiel und sperrt die Buttons
 function endGame() {
-  // Deaktiviere die Buttons "Hit" und "Stand" und aktiviere den Button "Play"
+  // Deaktiviere die Buttons "Hit" , "Play" und "Stand"
   hitButton.disabled = true;
   standButton.disabled = true;
   playButton.disabled = true;
