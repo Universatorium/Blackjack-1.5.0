@@ -10,29 +10,34 @@
 </head>
 
 <body>
-
+<div class="schattenmitfarbverlauf" >
   <div id="game-area">
     <div id="user-area">
       <h3>User</h3>
       <div id="user-cards"></div>
-      <p id="user-points"></p>
+      <p class="p2" id="user-points"></p>
     </div>
     <div id="computer-area">
       <h3>Computer</h3>
       <div id="computer-cards"></div>
-      <p id="computer-points"></p>
+      <p class="p2" id="computer-points"></p>
     </div>
-    <div id="message-area">
+    <div class="message" id="message-area">
+      <div>User Score: <span id="ergebnis">0</span></div>
       <p id="message"></p>
     </div>
   </div>
+</div>
   <div id="button-area">
     <button id="play-button">Spielen</button>
     <button id="hit-button">Hit</button>
     <button id="stand-button">Stand</button>
     <button id="reset-button">Neue Runde</button>
   </div>
-  <div class="spiele" id="ergebnisse"></div>
+  <button  class="ecke" onclick="loeschen()">Verlauf löschen</button>
+
+  <div class = "spielverlauf" id="ergebnisse"</div>
+
   <script src="blackjack.js"></script>
 
 </body>

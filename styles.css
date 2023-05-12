@@ -1,6 +1,11 @@
+.ecke {
+    position: fixed;
+}
 body {
-    background-color: royalblue;
-    color: #333;
+    /* background-image: url('jack-der-spaten-und-herzasskarte-mit-kasinochips-stapeln-auf-gruener-pokertabelle_23-2147881172.avif'); */
+    background-image: url('casino-hintergrund-mit-vier-ass-spielkarten_1017-23674.avif');
+    background-size: 100%;
+    color: black;
     font-family: Arial, sans-serif;
     font-size: 16px;
 }
@@ -9,21 +14,36 @@ h3 {
     text-decoration: underline;
 }
 
+.p2 {
+    font-size: 35px;
+}
 button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+    shape-outside: 3px;
+    background-image: url('buttons.png');
+    background-size: 110%;
+    background-position: center;
+    color: rgb(0, 0, 0);
+    border:1px;
     padding: 10px;
     margin: 5px;
     cursor: pointer;
+    width: 120px;
+        height: 80px;
+        background-color: rgb(4, 12, 250);
+        text-align: center;
+        text-shadow: #0f100f;
+        border-radius: 10px;
+        font: Arial;
 }
 
 button:hover {
-    background-color: #3e8e41;
+    background-image:url('arrow.png');
+    background-size: contain;
 }
 
 #play-button {
-    background-color: rgb(119, 192, 217);
+    /* background-color: rgb(119, 192, 217); */
+font-style: bold;
 }
 
 #play-button:hover {
@@ -39,51 +59,109 @@ button:hover {
 }
 
 #user-cards {
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
-#game-area {
-    background-color: lightblue;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    border-radius: 5px;
+.game-area {
+    background-color: rgb(223, 12, 12);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-radius: 10px;
     width: 600px;
     height: 240px;
     margin: 0 auto;
 }
 
 #user-area {
+    padding-left: 15px;
   float: left;
-  font-size: 20px;
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
 }
 
 #computer-area {
+    padding-right: 15px;
   float: right;
-  font-size: 20px;
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
 }
 
+.message{
+  text-align: center;
+  color:rgb(127, 25, 25)
+  /* position: absolute; */
+}
 
 #message-area {
   text-align: center;
+  /* position: absolute; */
   font-size: 25px;
+  font-weight: 700;
   text-decoration: underline;
 }
 
 #button-area {
   text-align: center;
-  font-size: 20px;
+  font-size: 50px;
+  font-style: italic;
 }
-.ergebnis{
-    display: block;
-    flex-direction: left;
-    margin-top: 110px;
-        color: #f7f3f3;  
-        font-size: 30px;
-        line-height: 0.9;
-        justify-content: center;
+
+#ergebnisse {
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    opacity: 80%;
+    display: grid;
+    background-color: rgb(193, 169, 125);
+    gap: 25px; /* Hier kannst du den gewünschten Abstand zwischen den Spielen festlegen */
 }
-.spiele{
-    display: right;
-    margin-left: 60px;
-    padding: 20px;
+
+.spielverlauf {
+    flex-basis: 50%; /* Setze die Breite der Spiele auf 50% */
+    box-sizing: border-box; /* Berücksichtige die Innenabstände in der Breite */
+    margin-bottom: 5px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+    margin-top: 30px;
+    margin-left: 80px;
+  }
+
+.schattenmitfarbverlauf {
+
+    width: 650px; /* relativ ist auch möglich mit z.B. 60% */
+    height: 260px;
+    margin: 50px auto;
+    background: linear-gradient(0deg, #6e0305, #ef940a);
+    background-color: hsla(0, 0%, 0%, 0.7);
+    position: relative;
+}
+
+.schattenmitfarbverlauf:before,
+.schattenmitfarbverlauf:after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(45deg, rgb(234, 5, 28), rgb(90, 23, 5), rgb(177, 11, 80), 
+       rgb(207, 24, 39), rgb(231, 21, 224), rgb(234, 98, 7), rgb(253, 3, 3));
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);  
+    top: -2px;
+    left: -2px;
+    background-size: 500%;
+    animation: wandernderFarbverlauf 30s linear infinite;
+}
+
+.schattenmitfarbverlauf:after {
+    filter: blur(25px);
+}
+
+@keyframes wandernderFarbverlauf {
+    0%   { background-position: 0 0 }
+    50%  { background-position: 600% 0 }
+    100% { background-position: 0 0 }
 }
