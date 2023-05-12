@@ -10,12 +10,17 @@ body {
     font-size: 16px;
 }
 
-h3 {
+h3, h3 {
     text-decoration: underline;
 }
 
 .p2 {
     font-size: 35px;
+    color: rgb(245, 205, 104);
+}
+img {
+    height: 100px;
+    width: auto;
 }
 button {
     shape-outside: 3px;
@@ -29,7 +34,7 @@ button {
     cursor: pointer;
     width: 120px;
         height: 80px;
-        background-color: rgb(4, 12, 250);
+        background-color: rgb(250, 4, 4);
         text-align: center;
         text-shadow: #0f100f;
         border-radius: 10px;
@@ -38,9 +43,11 @@ button {
 
 button:hover {
     background-image:url('arrow.png');
-    background-size: contain;
+    background-size: cover;
 }
-
+button:hover:disabled {
+    background-image: url('kreuz2.jpg');
+  }
 #play-button {
     /* background-color: rgb(119, 192, 217); */
 font-style: bold;
@@ -63,7 +70,7 @@ font-style: bold;
 }
 
 .game-area {
-    background-color: rgb(223, 12, 12);
+    background-color: rgb(237, 73, 73);
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
     padding: 30px;
     border-radius: 10px;
@@ -90,7 +97,7 @@ font-style: bold;
 
 .message{
   text-align: center;
-  color:rgb(127, 25, 25)
+  color:rgb(90, 13, 13)
   /* position: absolute; */
 }
 
@@ -99,7 +106,7 @@ font-style: bold;
   /* position: absolute; */
   font-size: 25px;
   font-weight: 700;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 #button-area {
@@ -113,18 +120,19 @@ font-style: bold;
     margin-right: 250px;
     margin-bottom: 50px;
     padding-bottom: 20px;
+    padding-top: 10px;
     opacity: 80%;
     display: grid;
-    background-color: rgb(193, 169, 125);
+    background-color: rgb(240, 187, 89);
     gap: 25px; /* Hier kannst du den gewünschten Abstand zwischen den Spielen festlegen */
 }
 
 .spielverlauf {
     flex-basis: 50%; /* Setze die Breite der Spiele auf 50% */
     box-sizing: border-box; /* Berücksichtige die Innenabstände in der Breite */
-    margin-bottom: 15px;
-    margin-top: 10px;
-    padding: 10px;
+    margin-bottom: px;
+    margin-top: 5px;
+    padding: 15px;
     display: flex;
     flex-wrap: wrap;
     color: black;
@@ -137,7 +145,7 @@ font-style: bold;
     width: 650px; /* relativ ist auch möglich mit z.B. 60% */
     height: 260px;
     margin: 50px auto;
-    background: linear-gradient(0deg, #6e0305, #ef940a);
+    background: linear-gradient(0deg, #320203, #f66d0c);
     background-color: hsla(0, 0%, 0%, 0.7);
     position: relative;
 }

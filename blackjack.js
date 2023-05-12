@@ -97,6 +97,8 @@ function calculatePoints(play) {
 
 // Beginnt das Spiel und gibt dem Nutzer und dem Computer jeweils zwei Karten
 function startGame() {
+  resetButton.disabled = true
+
   // Erstelle ein Deck mit allen Karten
   createDeck();
   // Mische das Deck
@@ -123,16 +125,19 @@ function startGame() {
  
 
   // Aktiviere die Buttons "Hit" und "Stand", deaktiviere den Button "Play"
+  resetButton.disabled = true;
   hitButton.disabled = false;
   standButton.disabled = false;
   playButton.disabled = true;
  
   if(userPoints === 21){
-    hitButton.disabled = true
+    hitButton.disabled = true;
     standButton.disabled = true;
     computerPointsEl.textContent = computerPoints;
     message = "Deine Ausbildung - beendet sie ist!"
     message2 = "JACKPOT!!!";
+    resetButton.disabled = false; //zur Präsentation entfernen
+
     endGame();
   }
 
@@ -158,6 +163,8 @@ function hit() {
   if (userPoints > 21) {
     message = "Noch viel lernen Du musst, junger Paadawan!";
     message2 = "Nicht so gierig!";
+    resetButton.disabled = false
+
     endGame();
   }
 }
@@ -201,13 +208,14 @@ function stand() {
     message = "Max! Ich bin dein Vater!";
     message2 = "Man weiß es nicht ...";
   }
+  resetButton.disabled = false
 
   // Beendet das Spiel und sperrt die Buttons
   endGame();
 }
 function displayResults(ergebnisse) {
   const ergebnisseEl = document.getElementById("ergebnisse");
-  ergebnisseEl.innerHTML = "<h2>Letzte Spiele:</h2>";
+  ergebnisseEl.innerHTML = "<h2>Spielverlauf:</h2>";
 
   const table = document.createElement("table");
   const tbody = document.createElement("tbody");
