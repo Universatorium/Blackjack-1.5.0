@@ -21,11 +21,12 @@ h3, h3 {
 img {
     height: 100px;
     width: auto;
+    position: inherit;
 }
 button {
-    shape-outside: 3px;
+    shape-outside: 5px;
     background-image: url('buttons.png');
-    background-size: 110%;
+    background-size: 100%;
     background-position: center;
     color: rgb(0, 0, 0);
     border:1px;
@@ -37,8 +38,9 @@ button {
         background-color: rgb(250, 4, 4);
         text-align: center;
         text-shadow: #0f100f;
-        border-radius: 10px;
-        font: Arial;
+        border-radius: 5px;
+        font: Arial bold;
+        font-weight: 700;
 }
 
 button:hover {
@@ -47,23 +49,9 @@ button:hover {
 }
 button:hover:disabled {
     background-image: url('kreuz2.jpg');
+    background-size: 90%;
+
   }
-#play-button {
-    /* background-color: rgb(119, 192, 217); */
-font-style: bold;
-}
-
-#play-button:hover {
-    background-color: #0077a3;
-}
-
-#reset-button {
-    background-color: #f44336;
-}
-
-#reset-button:hover {
-    background-color: #d32f2f;
-}
 
 #user-cards {
     margin-right: 15px;
@@ -113,6 +101,7 @@ font-style: bold;
   text-align: center;
   font-size: 50px;
   font-style: italic;
+  margin:10px;
 }
 
 #ergebnisse {
@@ -123,7 +112,7 @@ font-style: bold;
     padding-top: 10px;
     opacity: 80%;
     display: grid;
-    background-color: rgb(240, 187, 89);
+    background-color: rgb(241, 189, 144);
     gap: 25px; /* Hier kannst du den gewünschten Abstand zwischen den Spielen festlegen */
 }
 
