@@ -185,7 +185,7 @@ function stand() {
 
   // Wenn der Spieler 21 Punkte hat oder der Spieler mehr Punkte hat als der Computer, hat der Spieler gewonnen
   if(userPoints < 10){
-    message = "Ernsthaft? Hast Du das Spiel überhaupt verstanden?;"
+    message = "Echt jetzt? Hast Du das Spiel überhaupt verstanden?;"
     message2 = "Kann mal Jemand einen Arzt rufen?";
   }
   else if (computerPoints > 21 || userPoints > computerPoints) {
@@ -311,9 +311,9 @@ function resetGame() {
 }
 function loeschen() {
   const ergebnisseEl = document.getElementById('ergebnisse');
-  ergebnisseEl.innerHTML = ''; // Leere den Inhalt des Elements
 
   let ergebnisse = []; // Leere das Array
+  ergebnisseEl.innerHTML = ''; // Leere den Inhalt des Elements
 
   // Ergebnisse im localStorage speichern
   localStorage.setItem('ergebnisse', JSON.stringify(ergebnisse));

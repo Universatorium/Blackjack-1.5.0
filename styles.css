@@ -3,7 +3,7 @@
 }
 body {
     /* background-image: url('banner.avif'); */
-    background-image: url('casino-hintergrund-mit-vier-ass-spielkarten_1017-23674.avif');
+    background-image: url('img/casino-hintergrund-mit-vier-ass-spielkarten_1017-23674.avif');
     background-size: 100%;
     color: black;
     font-family: Arial, sans-serif;
@@ -25,7 +25,7 @@ img {
 }
 button {
     shape-outside: 5px;
-    background-image: url('buttons.png');
+    background-image: url('img/buttons.png');
     background-size: 100%;
     background-position: center;
     color: rgb(0, 0, 0);
@@ -44,20 +44,24 @@ button {
 }
 
 button:hover {
-    background-image:url('arrow.png');
+    background-image:url('img/arrow.png');
     background-size: cover;
 }
 button:hover:disabled {
-    background-image: url('kreuz2.jpg');
+    background-image: url('img/kreuz2.jpg');
     background-size: 90%;
 
   }
+#bender {
+    float:right;
+}
 
 #user-cards {
     margin-right: 15px;
 }
 
 .game-area {
+    display: grid;
     background-color: rgb(237, 73, 73);
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
     padding: 30px;
@@ -82,7 +86,9 @@ button:hover:disabled {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 700;
 }
-
+/* #computer-cards{
+    float: right; */
+/* } */
 .message{
   text-align: center;
   color:rgb(90, 13, 13)
@@ -119,11 +125,9 @@ button:hover:disabled {
 .spielverlauf {
     flex-basis: 50%; /* Setze die Breite der Spiele auf 50% */
     box-sizing: border-box; /* Berücksichtige die Innenabstände in der Breite */
-    margin-bottom: px;
+    margin-bottom: 5px;
     margin-top: 5px;
     padding: 15px;
-    display: flex;
-    flex-wrap: wrap;
     color: black;
     margin-top: 30px;
     margin-left: 80px;
@@ -151,7 +155,7 @@ button:hover:disabled {
     top: -2px;
     left: -2px;
     background-size: 500%;
-    animation: wandernderFarbverlauf 30s linear infinite;
+    animation: wandernderFarbverlauf 45s linear infinite;
 }
 
 .schattenmitfarbverlauf:after {
