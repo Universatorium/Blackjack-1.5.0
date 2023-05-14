@@ -18,11 +18,11 @@ h3, h3 {
     font-size: 35px;
     color: rgb(245, 205, 104);
 }
-img {
-    height: 100px;
+/* img {
+    height: 120px;
     width: auto;
     position: inherit;
-}
+} */
 button {
     shape-outside: 5px;
     background-image: url('img/buttons.png');
@@ -52,56 +52,86 @@ button:hover:disabled {
     background-size: 90%;
 
   }
-#bender {
-    float:right;
-}
-
-#user-cards {
-    margin-right: 15px;
-}
-
 .game-area {
     display: grid;
-    background-color: rgb(237, 73, 73);
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+    /* background-color: rgb(237, 73, 73);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3); */
     padding: 30px;
     border-radius: 10px;
     width: 600px;
     height: 240px;
     margin: 0 auto;
 }
+#game-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 10px;
+  }
+  
+  #user-area {
+    justify-self: start;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+  }
+  #user-bild {
+  grid-row: 1 / span 3;
+  height: 120px;
+  width: auto;
+  position: inherit;
 
-#user-area {
-    padding-left: 15px;
-  float: left;
-  font-size: 25px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 700;
+  }
+  #user-cards {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    color: #f66d0c;
 }
+  #user-points {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 
-#computer-area {
-    padding-right: 15px;
-  float: right;
-  font-size: 25px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 700;
-}
-/* #computer-cards{
-    float: right; */
-/* } */
-.message{
-  text-align: center;
-  color:rgb(90, 13, 13)
-  /* position: absolute; */
-}
+  .message-area {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    justify-self: center;
+  }
+  .message{
+    text-align: center;
+    color:rgb(90, 13, 13)
+  }
+  
+   #computer-area {
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    justify-self: end;
+  }
+   #computer-bild {
+  grid-row: 1 / span 3;
+  height: 120px;
+  width: auto;
+  position: inherit;
+  }
+   #computer-cards{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    color: #f66d0c;
+  } 
+   #computer-points{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-left: 50px;
+} 
 
-#message-area {
-  text-align: center;
-  /* position: absolute; */
-  font-size: 25px;
-  font-weight: 700;
-  /* text-decoration: underline; */
-}
 
 #button-area {
   text-align: center;
@@ -120,7 +150,7 @@ button:hover:disabled {
     display: grid;
     background-color: rgb(241, 189, 144);
     gap: 25px; /* Hier kannst du den gewünschten Abstand zwischen den Spielen festlegen */
-}
+} 
 
 .spielverlauf {
     flex-basis: 50%; /* Setze die Breite der Spiele auf 50% */
@@ -135,8 +165,8 @@ button:hover:disabled {
 
 .schattenmitfarbverlauf {
 
-    width: 650px; /* relativ ist auch möglich mit z.B. 60% */
-    height: 260px;
+    width: 740px; /* relativ ist auch möglich mit z.B. 60% */
+    height: 270px;
     margin: 50px auto;
     background: linear-gradient(0deg, #320203, #f66d0c);
     background-color: hsla(0, 0%, 0%, 0.7);

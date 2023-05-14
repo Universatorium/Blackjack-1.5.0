@@ -25,7 +25,7 @@ const resetButton = document.getElementById("reset-button");
 const hitButton = document.getElementById("hit-button");
 const standButton = document.getElementById("stand-button");
 const defaultPitch = 0; // Standard-Tonhöhe
-const defaultRate = 1; // Standard-Sprachgeschwindigkeit
+const defaultRate = 0.7; // Standard-Sprachgeschwindigkeit
 
 // Fügt Event-Listener zu den Buttons hinzu
 // Wenn der Button "Play" geklickt wird, wird die Funktion startGame ausgeführt
@@ -97,7 +97,7 @@ function calculatePoints(play) {
 
 // Beginnt das Spiel und gibt dem Nutzer und dem Computer jeweils zwei Karten
 function startGame() {
-  resetButton.disabled = true
+  // resetButton.disabled = true
 
   // Erstelle ein Deck mit allen Karten
   createDeck();
@@ -134,8 +134,9 @@ function startGame() {
     hitButton.disabled = true;
     standButton.disabled = true;
     computerPointsEl.textContent = computerPoints;
-    message = "Deine Ausbildung - beendet sie ist!"
+    message = "Deine Ausbildung ---- beendet sie ist!"
     message2 = "JACKPOT!!!";
+    updateSpielerBild(userPoints);
     resetButton.disabled = false; //zur Präsentation entfernen
 
     endGame();
@@ -164,7 +165,6 @@ function hit() {
     message = "Noch viel lernen Du musst, junger Paadawan!";
     message2 = "Nicht so gierig!";
     resetButton.disabled = false
-
     endGame();
   }
 }
@@ -189,14 +189,17 @@ function stand() {
     message2 = "Kann mal Jemand einen Arzt rufen?";
   }
   else if (computerPoints > 21 || userPoints > computerPoints) {
-    message = "Du Gewinnst! Aber bedenke: Glück macht nicht unglücklich!";
+    message = "Du Gewinnst! Aber bedenke: Glück ist Nichts - im Vergleich zu der Macht!";
     message2 = "GEWONNEN!";
+    updateComputerBild(computerPoints);
+    updateSpielerBild(userPoints);
     updateScore("win"); // ruft die funktion updateScore auf und übergibt den String "win" als Argument
   }
   // Wenn der Spieler weniger Punkte hat als der Computer, hat er verloren
   else if (userPoints < computerPoints) {
     message = "Du Verlierst, aber gewinnst an Erfahrung";
     message2 = "Loooooser!!!";
+    updateComputerBild(computerPoints);
   }
     // Wenn beide Spieler die gleiche Anzahl von Punkten haben, ist das Spiel unentschieden
 
@@ -215,7 +218,7 @@ function stand() {
 }
 function displayResults(ergebnisse) {
   const ergebnisseEl = document.getElementById("ergebnisse");
-  ergebnisseEl.innerHTML = "<h2>Spielverlauf:</h2>";
+  ergebnisseEl.innerHTML = "<h3>Spielverlauf:</h3>";
 
   const table = document.createElement("table");
   const tbody = document.createElement("tbody");
@@ -246,6 +249,38 @@ function displayResults(ergebnisse) {
   ergebnisseEl.appendChild(table);
 }
 
+// Funktion zum Ändern des Computer-Bildes basierend auf den Punkten
+function updateComputerBild(computerPoints) {
+  const computerBild = document.getElementById("computer-bild");
+
+  if (computerPoints > 21) {
+    computerBild.src = "img/dv2.png";
+    computerBild.alt = "Bild 1";
+  } 
+  else if (computerPoints === 21){
+    computerBild.src = "img/200w.webp";
+    computerBild.alt = "Bild 3";
+  }
+  else {
+    computerBild.src = "img/dv.png";
+    computerBild.alt = "Bild 3";
+  }
+}
+// Funktion zum Ändern des Spieler-Bildes basierend auf den Punkten
+function updateSpielerBild(userPoints) {
+  const userBild = document.getElementById("user-bild");
+
+  if (userPoints === 21) {
+    userBild.src = "img/giphy.webp";
+    userBild.alt = "Bild 1";
+
+  } else {
+    userBild.src = "img/luke2.png";
+    userBild.alt = "Bild 3";
+  }
+}
+
+
 // Beendet das Spiel und sperrt die Buttons
 function endGame() {
   // Deaktiviere die Buttons "Hit" , "Play" und "Stand"
@@ -253,7 +288,7 @@ function endGame() {
   standButton.disabled = true;
   playButton.disabled = true;
 
-  function speak(text) {
+function speak(text) {
     const message = new SpeechSynthesisUtterance(text);
     message.pitch = defaultPitch;
     message.rate = defaultRate;
@@ -277,7 +312,7 @@ ergebnisse.unshift({
 });
 
 // Array auf maximal 30 Einträge begrenzen
-ergebnisse = ergebnisse.slice(0, 30);
+ergebnisse = ergebnisse.slice(0, 20);
 
 // Ergebnisse im localStorage speichern
 localStorage.setItem('ergebnisse', JSON.stringify(ergebnisse));
@@ -298,6 +333,9 @@ function resetGame() {
   computerCards = [];
   userPoints = 0;
   computerPoints = 0;
+  updateComputerBild(computerPoints);
+  updateSpielerBild(userPoints);
+
 
   // Setze die Meldungen und Punkte zurück
   messageEl.textContent = "";
@@ -308,6 +346,7 @@ function resetGame() {
   playButton.disabled = false;
   hitButton.disabled = true;
   standButton.disabled = true;
+
 }
 function loeschen() {
   const ergebnisseEl = document.getElementById('ergebnisse');
