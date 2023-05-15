@@ -356,7 +356,7 @@ ergebnisse.unshift({
   gewinner: (userPoints > computerPoints && userPoints <=21 || computerPoints > 21) ? 'Du' : (userPoints > 21 || userPoints < computerPoints && computerPoints <= 21) ? 'Computer' : 'Unentschieden'
 });
 
-// Array auf maximal 30 Einträge begrenzen
+// Array auf maximal 20 Einträge begrenzen
 ergebnisse = ergebnisse.slice(0, 20);
 
 // Ergebnisse im localStorage speichern
