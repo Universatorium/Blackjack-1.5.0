@@ -34,7 +34,7 @@ Das Spiel verfügt über die folgenden Funktionen:
 
 - Sprachausgabe basierend auf dem Spielergebnis: Die Funktion speak() gibt eine Sprachausgabe basierend auf dem Spielergebnis aus.
 
-Anleitung zum Ausführen des Spiels
+- Anleitung zum Ausführen des Spiels
 Um das Spiel auszuführen, öffnen Sie die index.html-Datei in einem Webbrowser, der JavaScript unterstützt. Sobald die Seite geladen ist, sehen Sie das Spielfeld und die verschiedenen Buttons.
 
 Klicken Sie auf den "Play"-Button, um das Spiel zu starten. Verwenden Sie dann die Buttons "Hit" und "Stand", um Entscheidungen während des Spiels zu treffen. Die Punkte und Karten beider Spieler werden angezeigt, und das Endergebnis wird am Ende des Spiels angezeigt.
