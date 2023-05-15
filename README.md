@@ -263,7 +263,7 @@ function stand() {
 }
 function displayResults(ergebnisse) {
   const ergebnisseEl = document.getElementById("ergebnisse");
-  ergebnisseEl.innerHTML = "<h3>Spielverlauf:</h3>";
+  ergebnisseEl.innerHTML = "Spielverlauf:";
 
   const table = document.createElement("table");
   const tbody = document.createElement("tbody");
